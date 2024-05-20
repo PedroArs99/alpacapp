@@ -6,3 +6,13 @@ services:
       - 11434:11434
     volumes:
       - ./.ollama:/root/.ollama
+
+  open-webui:
+    container_name: open-webui
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    image: ghcr.io/open-webui/open-webui
+    ports:
+      - 3001:8080
+    volumes:
+      - ./.open-webui:/app/backend/data
